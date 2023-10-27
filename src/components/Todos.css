@@ -1,0 +1,11 @@
+.todoslist {
+  display: flex;
+  flex-direction: column;
+}
+.todotext {
+  font-size: 35px;
+  padding: 10px;
+  margin: 2px;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
