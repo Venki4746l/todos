@@ -16,44 +16,53 @@ function TodoItem({ todo, onEdit, onDelete, onToggleComplete }) {
   };
 
   return (
-    <li>
+    <li className="listItem">
       {isEditing ? (
-        <div>
+        <div className="todoEditingContainer">
           <input
             type="text"
             className="form-control"
             value={editedTodo}
             onChange={(e) => setEditedTodo(e.target.value)}
           />
-          <button className="btn btn-success m-2" onClick={handleSave}>
-            Save
-          </button>
-          <button className="btn btn-dark m-2" onClick={cancleEdit}>
-            cancle
-          </button>
+          <div className="editButtonsGruop">
+            <button className="btn btn-success " onClick={handleSave}>
+              Save
+            </button>
+            <button className="btn btn-dark " onClick={cancleEdit}>
+              cancle
+            </button>
+          </div>
         </div>
       ) : (
-        <div>
-          <input
-            type="checkbox"
-            checked={todo.completed}
-            onChange={() => onToggleComplete(todo)}
-          />
-          <span
-            style={{ textDecoration: todo.completed ? "line-through" : "none" }}
-            className="todotext"
-          >
-            {todo.text}
-          </span>
-          <button
-            className="btn btn-info m-2"
-            onClick={() => setIsEditing(true)}
-          >
-            Edit
-          </button>
-          <button className="btn btn-danger " onClick={() => onDelete(todo)}>
-            Delete
-          </button>
+        <div className="tododisplay">
+          <div className="checkboxtext">
+            <input
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => onToggleComplete(todo)}
+              className="form-check-input"
+            />
+            <span
+              style={{
+                textDecoration: todo.completed ? "line-through" : "none",
+              }}
+              
+            >
+              {todo.text}
+            </span>
+          </div>
+          <div>
+            <button
+              className="btn btn-info m-2"
+              onClick={() => setIsEditing(true)}
+            >
+              Edit
+            </button>
+            <button className="btn btn-danger " onClick={() => onDelete(todo)}>
+              Delete
+            </button>
+          </div>
         </div>
       )}
     </li>

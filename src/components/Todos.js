@@ -34,7 +34,7 @@ const Todos = () => {
   };
 
   return (
-    <div>
+    <div className="todos-container">
       <h1>Todos List</h1>
       <TodoInput onAddTodo={addTodo} />
       {todos.length === 0 ? (
